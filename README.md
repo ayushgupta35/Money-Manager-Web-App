@@ -1,4 +1,5 @@
 Money Manager Web App
+
 This is a Money Manager Web Application that helps users manage their finances. The application was built with Python, SQL, Flask, Jinja, HTML, CSS, and Javascript.
 
 Features
