@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="dash">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="green">
+            <h3 class="balancetitle">Balance</h3>
+            <img class="catagorypic" src="static/dollar.jpg" width="50px" height="50px">
+
+            <h3 class="currencytitle">{{ currency }}</h3>
+            <h2 class="balanceamount">{{ balance }}</h2>
+        </div>
+
+        <div class="blue">
+
+            <text class="catagorycurrencytitle">{{ currency }}</text><br>
+            <text class="catagoryamount">{{ shopping }}</text>
+            <h3 class="catagorytitle">Shopping</h3>
+            <img class="catagorypic" src="static/cart.jpg"  width="30px" height="30px">
+        </div>
+
+        <div class="red">
+
+            <text class="catagorycurrencytitle">{{ currency }}</text><br>
+            <text class="catagoryamount">{{ food }}</text>
+            <h3 class="catagorytitle">Food & Drink</h3>
+            <img class="catagorypic" src="static/food.jpg"  width="40px" height="40px">
+        </div>
+
+        <div class="yellow">
+
+            <text class="catagorycurrencytitle">{{ currency }}</text><br>
+            <text class="catagoryamount">{{ bills }}</text>
+            <h3 class="catagorytitle">Payments</h3>
+            <img class="catagorypic" src="static/house.jpg"  width="25px" height="25px">
+        </div>
+
+        <div class="gray">
+
+            <text class="catagorycurrencytitle">{{ currency }}</text><br>
+            <text class="catagoryamount">{{ other }}</text>
+            <h3 class="catagorytitle">Other</h3>
+            <img class="catagorypic" src="static/game.jpg"  width="35px" height="25px">
+        </div>
+
+        <div class="break"></div>
+
+        <div class="tablegray">
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Purchase</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Category</th>
+
+                </tr>
+
+                {% if expenses %}
+                    {% for expense in expenses %}
+                    <tr>
+                        <td>{{ expense.number }}</td>
+                        <td>{{ expense.purchase }}</td>
+                        <td>{{ expense.amount }}</td>
+                        <td>{{ expense.date }}</td>
+                        <td>{{ expense.time }}</td>
+                        <td>{{ expense.catagory }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+
+                {% if searchtable %}
+                    {% for search in searchtable %}
+                    <tr>
+                        <td>{{ search.number }}</td>
+                        <td>{{ search.purchase }}</td>
+                        <td>{{ search.amount }}</td>
+                        <td>{{ search.date }}</td>
+                        <td>{{ search.time }}</td>
+                        <td>{{ search.catagory }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+
+            </table>
+        </div>
+
+        <div class="addnew">
+            <h2 class="addnewtitle">Add New Expense</h2>
+
+            <form action="/" method="post">
+
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="addnewtextbox"  name="purchase" placeholder="Purchase" type="text" required>
+                </div>
+
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="addnewtextbox" name="amount" placeholder="Amount $" step="0.01" type="number" required/>
+                </div>
+
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="addnewtextbox" name="date" placeholder="Date" type="date" required/>
+                </div>
+
+                <div class="catagoryradio" required="required">
+
+                    <input checked="checked" type="radio" id="shopping" name="catagory" value="shopping">
+                    <label for="shopping"><img class="catagorypic" src="static/cart2.jpg"  width="30px" height="30px"></label>
+
+                    <input type="radio" id="food" name="catagory" value="food">
+                    <label for="food"><img class="catagorypic" src="static/food2.jpg"  width="40px" height="30px"></label>
+
+                    <input type="radio" id="bills" name="catagory" value="bills">
+                    <label for="bills"><img class="catagorypic" src="static/house2.jpg"  width="30px" height="30px"></label>
+
+                    <input type="radio" id="other" name="catagory" value="other">
+                    <label for="other"><img class="catagorypic" src="static/game2.jpg"  width="35px" height="35px"></label>
+
+                </div>
+
+                <button name="button" value="add" class="buttonsubmit" type="submit">Add</button>
+            </form>
+        </div>
+
+        <div class="searchtable">
+
+            <h2 class="indexh2">Search</h2>
+
+            <form action="/" method="post">
+
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="addnewtextbox" name="search" placeholder="Search Table" type="search" required>
+                </div>
+
+                <button name="button" value="search" class="buttonsearch" type="submit">Search</button>
+            </form>
+            <form action="/" method="post">
+                <button name="button" value="reset" class="buttonreset" type="submit">Reset</button>
+            </form>
+        </div>
+
+        <div class="deleterow">
+            <h2 class="indexh2">Delete Row</h2>
+
+            <form action="/" method="post">
+
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="addnewtextbox" name="deleterow" placeholder="Id" type="number" required>
+                </div>
+
+                <button name="button" value="deleterow" class="buttonsubmit" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

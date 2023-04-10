@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change
+{% endblock %}
+
+{% block main %}
+    <div class="content-area">
+
+        <div class="currency" ALIGN="right">
+            <h2>Currency</h2>
+            <form action="/settings" method="post">
+
+                <div class="radio" required="required">
+
+                    <input checked="checked" type="radio" id="usd" name="currency" value="usd">
+                    <label for="usd">USD: U.S. Dollar</label><br>
+
+                    <input type="radio" id="cad" name="currency" value="cad">
+                    <label for="cad">CAD: Canadian Dollar</label><br>
+
+                    <input type="radio" id="eur" name="currency" value="eur">
+                    <label for="eur">EUR: Euro</label><br>
+
+                    <input type="radio" id="gbp" name="currency" value="gbp">
+                    <label for="gbp">GBP: British Pound</label><br>
+
+                    <input type="radio" id="chf" name="currency" value="chf">
+                    <label for="chf">CHF: Swiss Franc</label><br>
+
+                    <input type="radio" id="nzd" name="currency" value="nzd">
+                    <label for="nzd">NZD: New Zealand Dollar</label><br>
+
+                    <input type="radio" id="aud" name="currency" value="aud">
+                    <label for="aud">AUD: Austalian Dollar</label><br>
+
+                    <input type="radio" id="jpy" name="currency" value="jpy">
+                    <label for="jpy">JPY: Japanese Yen</label><br>
+
+                    <input type="radio" id="inr" name="currency" value="inr">
+                    <label for="inr">INR: Indian Rupees</label><br>
+
+                    <input type="radio" id="mxn" name="currency" value="mxn">
+                    <label for="mxn">MXN: Mexican Peso</label><br>
+
+                    <input type="radio" id="cny" name="currency" value="cny">
+                    <label for="cny">CNY: Chinese Yuan</label><br>
+                </div>
+
+                <img src="static/transparant.jpg" height="20px" width="400px">
+                <button value="currency" name="button" class="buttonsubmit" type="submit">Change</button>
+            </form>
+
+        </div>
+
+        <div class="change">
+            <h2>Change Password</h2>
+            <br>
+            <form value="password" action="/settings" method="post">
+                <div style="padding: 15px">
+                    <input autocomplete="off" autofocus spellcheck="false" class="textbox" name="oldpassword" placeholder="Old Password" type="password" required/>
+                </div>
+                <br>
+                <div style="padding: 15px">
+                    <input autocomplete="off" autofocus spellcheck="false" class="textbox" name="newpassword" placeholder="New Password" type="password" required/>
+                </div>
+                <br>
+                <div style="padding: 15px">
+                    <input autocomplete="off" autofocus spellcheck="false" class="textbox" name="newpasswordconfirmation" placeholder="Confirm Password" type="password" required/>
+                </div>
+                <br>
+                <br>
+                <button value="password" class="buttonsubmit" name="button" type="submit">Change</button>
+            </form>
+        </div>
+
+        <div class="delete">
+            <h2>Delete Account</h2>
+            <form class="deletecheck" action="/settings" method="post">
+                <input type="checkbox" id="delete" name="delete" value="delete" required>&nbsp&nbspConfirm<br>
+                <br>
+                <button value="delete" class="buttonsubmit" name="button" type="submit" required>Delete</button>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

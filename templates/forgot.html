@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Forgot Password
+{% endblock %}
+
+{% block main %}
+    <div class="content-area">
+        <form action="/forgot" method="post">
+            <div style="padding: 15px">
+                <input spellcheck="false" class="textbox" autocomplete="off" autofocus  name="username" placeholder="Username" type="text" size="25"required>
+            </div>
+            <div style="padding: 15px">
+                <input spellcheck="false" class="textbox" name="password" placeholder="New Password" type="password" size="25" required>
+            </div>
+            <div style="padding: 15px">
+                <input spellcheck="false" class="textbox" name="confirmation" placeholder="Confirm New Password" type="password" size="25" required>
+            </div>
+            <br><br>
+            <button class="buttonsubmit" type="submit">Reset</button>
+        </form>
+    </div>
+{% endblock %}

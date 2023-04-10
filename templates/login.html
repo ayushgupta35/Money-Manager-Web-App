@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <div class="content-area">
+        <form action="/login" method="post">
+            <div style="padding: 15px">
+                <input autocomplete="on" autofocus spellcheck="false" class="textbox"  name="username" placeholder="Username" type="text" required>
+            </div>
+            <div style="padding: 15px">
+                <input autocomplete="on" autofocus spellcheck="false" class="textbox" name="password" placeholder="Password" type="password" required>
+            </div>
+            <br>
+            <button class="buttonsubmit" type="submit">Log In</button>
+        </form>
+        <br>
+        <div class="atag">
+            <a style="color: #262626; text-decoration: none;" href="/forgot">Forgot Password?</a>
+        </div>
+        <div class="atag">
+            <a style="color: #262626; text-decoration: none;" href="/register">Create Account</a>
+        </div>
+    </div>
+{% endblock %}

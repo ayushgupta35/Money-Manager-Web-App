@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="static/moneybag.ico" />
+
+        <title>Manager: {% block title %}{% endblock %}</title>
+
+        <script>
+            if ( window.history.replaceState ) {
+              window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+
+    </head>
+
+    <body>
+
+        <div class="box-area">
+            <header>
+                <div class="wrapper">
+                    <div class="logo">
+                        <a href="/">💰 Manager</a>
+                    </div>
+                    <nav>
+                        {% if session.user_id %}
+                            <a href="/">Dashboard</a></li>
+                            <a href="/funds">Funds</a></li>
+                            <a href="/settings">Settings</a></li>
+                            <a href="/logout">Log Out</a></li>
+                        {% else %}
+                            <a href="/register">Register</a></li>
+                            <a href="/login">Log In</a></li>
+                        {% endif %}
+                    </nav>
+                </div>
+            </header>
+        </div>
+        <div class="banner-area">
+            <h2></h2>
+        </div>
+
+        {% if get_flashed_messages() %}
+            <div class="flash" id="flash">
+                <div role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </div>
+        {% endif %}
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+
+</html>

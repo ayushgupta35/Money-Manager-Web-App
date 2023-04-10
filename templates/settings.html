@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change
+{% endblock %}
+
+{% block main %}
+    <div class="content-area">
+
+        <div ALIGN="right">
+            <img src="static/transparant.jpg" height="400px" width="270px" style="float: right">
+        </div>
+        <div class="currency" ALIGN="right">
+            <h2>Currency</h2>
+            <form action="/password" method="post">
+                <div>
+                    <select class="textbox" name="currency">
+                        <option value="usd">USD: U.S. Dollar</option>
+                        <option value="cad">CAD: Canadian Dollar</option>
+                        <option value="eur">EUR: Euro</option>
+                        <option value="gbp">GBP: British Pound</option>
+                        <option value="chf">CHF: Swiss Franc</option>
+                        <option value="nzd">NZD: New Zealand Dollar</option>
+                        <option value="aud">AUD: Australian Dollar</option>
+                        <option value="jpy">JPY: Japanese Yen</option>
+                    </select>
+                </div>
+                <img src="static/transparant.jpg" height="30px" width="400px">
+                <button class="buttonsubmit" type="submit">Change</button>
+            </form>
+        </div>
+
+        <div class="change">
+            <h2>Change Password</h2>
+            <form action="/change" method="post">
+                <div style="padding: 15px">
+                    <input autocomplete="off" autofocus spellcheck="false" class="textbox" name="oldpassword" placeholder="Old Password" type="password" required/>
+                </div>
+
+                <div style="padding: 15px">
+                    <input autocomplete="off" autofocus spellcheck="false" class="textbox" name="newpassword" placeholder="New Password" type="password" required/>
+                </div>
+
+                <div style="padding: 15px">
+                    <input autocomplete="off" autofocus spellcheck="false" class="textbox" name="newpasswordconfirmation" placeholder="Confirm Password" type="password" required/>
+                </div>
+
+                <button class="buttonsubmit" type="submit">Change</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Funds
+{% endblock %}
+
+{% block main %}
+    <div class="content-area">
+
+        <div class="funds">
+            <h2>Add Funds</h2>
+            <form action="/funds" method="post">
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="textbox" name="amount" placeholder="Amount $" step="0.01" type="number" required/>
+                </div>
+
+                <div style="padding: 15px">
+                    <input autocomplete="on" autofocus spellcheck="false" class="textbox" name="source" placeholder="Source" type="text" required/>
+                </div>
+
+                <button class="buttonsubmit" type="submit">Add</button>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}
